@@ -10,9 +10,9 @@ export const SERVICES: Service[] = [
     icon: '🎯',
   },
   {
-    id: 'seo-marketing',
-    title: 'SEO Marketing',
-    description: 'Comprehensive digital marketing that puts your business at the forefront of search results.',
+    id: 'ads-marketing',
+    title: 'Google / Meta Ads',
+    description: 'Highly targeted ads on Google & Meta that bring instant leads and quality customers to your business.',
     icon: '📈',
   },
   {
@@ -99,5 +99,5 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  'TechCorp', 'Lumina', 'UrbanStyle', 'PureFresh', 'GlobalSolutions', 'VibeCheck', 'ApexGroup'
+  'Raipur Homes', 'Raipur Builder', 'Gurukul School', 'Laxmi Telecom'
 ];
