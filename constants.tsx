@@ -4,6 +4,18 @@ import { Service, PricingPlan, Testimonial } from './types';
 
 export const SERVICES: Service[] = [
   {
+    id: 'gmb-opt',
+    title: 'Google Business Profile Optimization',
+    description: 'Optimize your GMB profile to appear in the local pack and attract more walk-ins.',
+    icon: '📍',
+  },
+  {
+    id: 'local-seo',
+    title: 'Local Business SEO',
+    description: 'Dominating local search queries to ensure neighborhood customers find you first.',
+    icon: '🗺️',
+  },
+  {
     id: 'lead-gen',
     title: 'Lead Generation',
     description: 'High-quality lead generation strategies tailored for local businesses to drive real sales.',
@@ -16,16 +28,16 @@ export const SERVICES: Service[] = [
     icon: '📈',
   },
   {
-    id: 'gmb-opt',
-    title: 'Google Business Profile Optimization',
-    description: 'Optimize your GMB profile to appear in the local pack and attract more walk-ins.',
-    icon: '📍',
+    id: 'web-dev',
+    title: 'Web Development',
+    description: 'Custom websites and web applications built to drive conversions and showcase your business professionally.',
+    icon: '💻',
   },
   {
-    id: 'local-seo',
-    title: 'Local Business SEO',
-    description: 'Dominating local search queries to ensure neighborhood customers find you first.',
-    icon: '🗺️',
+    id: 'ui-ux',
+    title: 'UI/UX Design',
+    description: 'User-focused design solutions that enhance customer experience and boost engagement rates.',
+    icon: '🎨',
   },
 ];
 
@@ -99,5 +111,11 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  'Raipur Homes', 'Raipur Builder', 'Gurukul School', 'Laxmi Telecom'
+  '/clients/client1.png',
+  '/clients/client2.png',
+  '/clients/client3.png',
+  '/clients/client4.png',
+  '/clients/client5.png',
+  '/clients/client6.png',
+  '/clients/client7.png'
 ];
