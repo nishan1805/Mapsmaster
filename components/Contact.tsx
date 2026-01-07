@@ -18,8 +18,11 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h6 className="font-bold text-sm uppercase tracking-widest text-gray-500">Contact No.</h6>
-                    <p className="text-white text-lg">9179775502</p>
-                    <p className="text-white text-lg">9893556566</p>
+                    <div className="flex items-center text-white text-lg gap-3">
+                    <span>9179775502</span>
+                    {/* separator */}
+                    <span className="h-4 w-px bg-gray-500/60"></span>
+                    <span>9893556566</span>
                   </div>
                 </div>
                 
