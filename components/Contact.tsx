@@ -25,6 +25,7 @@ const Contact: React.FC = () => {
                     <span>9893556566</span>
                   </div>
                 </div>
+              </div>   
                 
                 <div className="flex items-center gap-6 group">
                   <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-googleRed flex-shrink-0 group-hover:bg-googleRed group-hover:text-white transition-all">
