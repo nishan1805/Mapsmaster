@@ -45,7 +45,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'starter',
     name: 'Starter',
-    price: '₹1,250/mo',
+    price: '₹1,250',
     description: 'Perfect for businesses starting their Google Business visibility journey.',
     features: [
       'GBP Setup & Optimization',
@@ -62,7 +62,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'growth',
     name: 'Growth',
-    price: '₹2,000/mo',
+    price: '₹2,000',
     description: 'Ideal for growing businesses aiming for strong first-page presence.',
     features: [
       'GBP Setup & Optimization',
@@ -80,7 +80,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   {
     id: 'pro',
     name: 'Pro',
-    price: '₹3,000/mo',
+    price: '₹3,000',
     description: 'The ultimate package for multiple locations and maximum lead volume.',
     features: [
       'GBP Setup & Optimization',
