@@ -24,7 +24,7 @@ const Header: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-googleBlue flex items-center justify-center text-white font-bold text-lg">M</div>
-          <span className="text-navy font-bold text-xl tracking-tight">MapsMaster <span className="text-googleRed">Raipur</span></span>
+          <span className="text-navy font-bold text-xl tracking-tight">MapsMaster</span>
         </div>
 
         <nav className="hidden lg:flex items-center gap-8">
