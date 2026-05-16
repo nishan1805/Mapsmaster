@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <img
         src="/MM logo.png"
         alt="MapsMaster Logo"
-        className="w-10 h-10 object-contain"
+        className="w-12 h-12 object-contain"
         />
         <span className="text-white font-bold text-2xl tracking-tight leading-none">
           MapsMaster
