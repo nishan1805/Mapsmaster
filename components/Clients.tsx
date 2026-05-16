@@ -21,9 +21,11 @@ const Clients: React.FC = () => {
               className="px-6 flex items-center justify-center shrink-0"
             >
               <div className="w-48 h-28 bg-white rounded-2xl flex items-center justify-center shadow-xl border border-white/10 hover:shadow-googleBlue/20 transition-all duration-300 group">
-                <span className="text-xl font-bold text-navy grayscale group-hover:grayscale-0 transition-all duration-300 px-4 text-center">
-                  {logo}
-                </span>
+                <img
+                src={logo}
+                  alt={`Client ${index + 1}`}
+                  className="max-w-[80%] max-h-[70%] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
               </div>
             </div>
           ))}
