@@ -6,10 +6,16 @@ const Footer: React.FC = () => {
     <footer className="bg-navy pt-20 pb-10 text-center text-white">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col items-center max-w-2xl mx-auto mb-16">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-2xl bg-googleBlue flex items-center justify-center text-white font-bold text-xl">M</div>
-            <span className="text-white font-bold text-2xl tracking-tight leading-none">MapsMaster <span className="text-googleRed">Raipur</span></span>
-          </div>
+        <div className="flex items-center gap-2 mb-6">
+        <img
+        src="/MM logo.png"
+        alt="MapsMaster Logo"
+        className="w-10 h-10 object-contain"
+        />
+        <span className="text-white font-bold text-2xl tracking-tight leading-none">
+          MapsMaster
+        </span>
+      </div>
           
           <p className="text-gray-400 text-base mb-10 leading-relaxed font-normal">
             Raipur's leading Google My Business and Local SEO consultancy. We transform local visibility into measurable business growth.
