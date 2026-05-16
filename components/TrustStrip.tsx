@@ -14,12 +14,12 @@ const TrustStrip: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 items-center">
           {metrics.map((metric, index) => (
-            <div 
-              key={index} 
-              className={`text-center group px-4 
-                ${index !== metrics.length - 1 ? 'lg:border-r border-white/20' : ''} 
-                ${index % 2 === 0 ? 'border-r border-white/20 lg:border-r-0' : ''}`}
-            >
+           <div
+             key={index}
+             className={`text-center group px-4 ${
+             index !== metrics.length - 1 ? 'lg:border-r border-white/20' : ''
+            }`}
+          >
               <div className="text-3xl md:text-5xl font-semibold text-white mb-2 group-hover:text-googleBlue transition-colors duration-300 tracking-tight">
                 {metric.value}
               </div>
