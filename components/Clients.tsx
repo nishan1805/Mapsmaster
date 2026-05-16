@@ -1,28 +1,30 @@
-
 import React from 'react';
 import { CLIENT_LOGOS } from '../constants';
 
 const Clients: React.FC = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-navy overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 mb-8 sm:mb-10 lg:mb-12">
-        <h2 className="text-center text-gray-500 font-semibold tracking-widest uppercase text-sm sm:text-base px-4">
-          Trusted by Top Businesses Across Raipur
-        </h2>
+    <section className="py-16 bg-navy overflow-hidden">
+      <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 mb-12">
+        <div className="flex flex-col items-center">
+          <h2 className="text-center text-white text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            Trusted Partners Across India
+          </h2>
+          <div className="w-20 h-1.5 bg-googleBlue rounded-full"></div>
+        </div>
       </div>
-
+      
       <div className="relative w-full">
-        <div className="animate-scroll">
-          {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logoPath, index) => (
-            <div
-              key={index}
-              className="px-8 sm:px-12 lg:px-16 flex items-center justify-center"
+        <div className="animate-scroll flex">
+          {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, index) => (
+            <div 
+              key={index} 
+              className="px-6 flex items-center justify-center shrink-0"
             >
-              <img
-                src={logoPath}
-                alt={`Client ${index + 1}`}
-                className="h-12 sm:h-16 lg:h-20 w-auto object-contain"
-              />
+              <div className="w-48 h-28 bg-white rounded-2xl flex items-center justify-center shadow-xl border border-white/10 hover:shadow-googleBlue/20 transition-all duration-300 group">
+                <span className="text-xl font-bold text-navy grayscale group-hover:grayscale-0 transition-all duration-300 px-4 text-center">
+                  {logo}
+                </span>
+              </div>
             </div>
           ))}
         </div>
