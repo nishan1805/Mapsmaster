@@ -24,7 +24,7 @@ const Header: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src="/logo.png"
+            src="/MM logo.png"
             alt="MapsMaster Logo"
             className="w-10 h-10 object-contain"
             />
