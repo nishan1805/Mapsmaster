@@ -17,18 +17,36 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isSubmitting) return;
+  e.preventDefault();
+  if (isSubmitting) return;
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    // Mock API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+  const message = `
+  New Inquiry from MapsMaster Website
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+  Full Name: ${formData.fullName}
+  Phone Number: ${formData.phoneNumber}
+  Email Address: ${formData.email}
+  Business Name: ${formData.businessName}
+   `;
+
+  // Replace with your WhatsApp number (country code + number, no + sign)
+  const whatsappNumber = "919179775502";
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  // Optional 1-second loading effect
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  // Open WhatsApp in a new tab
+  window.open(whatsappUrl, "_blank");
+
+  // Show success screen
+   setIsSubmitting(false);
+   setIsSuccess(true);
   };
-
+  
   const resetForm = () => {
     setFormData({
       fullName: '',
