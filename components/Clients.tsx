@@ -24,7 +24,7 @@ const Clients: React.FC = () => {
                 <img
                 src={logo}
                   alt={`Client ${index + 1}`}
-                  className="max-w-[80%] max-h-[70%] object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="max-w-[80%] max-h-[70%] object-contain transition-transform duration-300 group-hover:scale-105"
                   />
               </div>
             </div>
