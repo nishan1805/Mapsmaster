@@ -4,40 +4,39 @@ import React from 'react';
 const Hero: React.FC = () => {
 
   return (
-    <section id="home" className="pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 lg:pt-48 lg:pb-32 bg-white overflow-hidden">
+   <section id="home" className="pt-32 pb-20 md:pt-48 md:pb-32 bg-white overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-16">
-          <div className="lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 sm:mb-8 px-2 sm:px-0">
-              Grow Your Local Business with <span className="text-googleBlue">Google Maps</span> & <span className="text-googleGreen">Local SEO</span>
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="lg:w-3/5 text-center lg:text-left">
+            <div className="inline-block px-4 py-1.5 bg-googleBlue/10 text-googleBlue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+              Raipur’s No. 1 Agency
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-8">
+              Grow Your Local Business with <span className="text-googleBlue">
+                <span className="text-googleBlue">G</span>
+                <span className="text-googleRed">o</span>
+                <span className="text-googleYellow">o</span>
+                <span className="text-googleBlue">g</span>
+                <span className="text-googleGreen">l</span>
+                <span className="text-googleRed">e</span>
+              </span> <span className="text-googleBlue">Maps</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed px-2 sm:px-0">
+            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
               We help local businesses rank always on Google Search 1st Page and get more real customers in Raipur's local market today.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 px-4 sm:px-0">
-              <a
-                href="#contact"
-                className="w-full sm:w-auto bg-googleBlue text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-3 rounded-xl font-bold text-base sm:text-lg hover:bg-navy transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-200 text-center"
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+              <a 
+                href="#services"
+                className="w-full sm:w-auto bg-googleBlue text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-navy transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-200 text-center"
               >
-                Get Started
+                Our Services
               </a>
-              <a
-                href="#contact"
-                className="w-full sm:w-auto border border-navy text-navy px-6 sm:px-8 lg:px-10 py-3 sm:py-3 rounded-xl font-bold text-base sm:text-lg hover:bg-navy hover:text-white transition-all transform hover:-translate-y-1 text-center"
+              <a 
+                href="#packages"
+                className="w-full sm:w-auto border-2 border-navy text-navy px-10 py-5 rounded-xl font-bold text-lg hover:bg-navy hover:text-white transition-all transform hover:-translate-y-1 text-center"
               >
-                Contact Us
+                Our Packages
               </a>
-            </div>
-
-            <div className="mt-8 sm:mt-10 lg:mt-12 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-8 opacity-70">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-googleYellow text-xl sm:text-2xl">★★★★★</span>
-                <span className="text-xs sm:text-sm font-bold text-navy"><span className="text-base sm:text-lg">100+</span> Happy Clients</span>
-              </div>
-              <div className="hidden sm:block h-6 w-px bg-gray-300"></div>
-              <div className="flex items-center gap-3">
-                <span className="text-xs sm:text-sm font-semibold">Raipur's No. 1 Agency</span>
-              </div>
             </div>
           </div>
 
