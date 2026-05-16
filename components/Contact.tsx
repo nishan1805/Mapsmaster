@@ -7,7 +7,6 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
-    email: '',
     businessName: ''
   });
 
@@ -27,7 +26,6 @@ const Contact: React.FC = () => {
 
   Full Name: ${formData.fullName}
   Phone Number: ${formData.phoneNumber}
-  Email Address: ${formData.email}
   Business Name: ${formData.businessName}
    `;
 
@@ -51,7 +49,6 @@ const Contact: React.FC = () => {
     setFormData({
       fullName: '',
       phoneNumber: '',
-      email: '',
       businessName: ''
     });
     setIsSuccess(false);
@@ -142,18 +139,6 @@ const Contact: React.FC = () => {
                             required
                             placeholder="+91 91797 75502" 
                             value={formData.phoneNumber}
-                            onChange={handleChange}
-                            className="w-full bg-gray-50 border-0 rounded-2xl p-5 text-base focus:ring-2 focus:ring-googleBlue transition-all outline-none" 
-                          />
-                        </div>
-                        <div className="space-y-3">
-                          <label className="text-sm font-bold text-navy uppercase tracking-widest">Email Address</label>
-                          <input 
-                            name="email"
-                            type="email" 
-                            required
-                            placeholder="john@example.com" 
-                            value={formData.email}
                             onChange={handleChange}
                             className="w-full bg-gray-50 border-0 rounded-2xl p-5 text-base focus:ring-2 focus:ring-googleBlue transition-all outline-none" 
                           />
