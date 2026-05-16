@@ -1,6 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const Contact: React.FC = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    email: '',
+    businessName: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    // Mock API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
+  };
+
+  const resetForm = () => {
+    setFormData({
+      fullName: '',
+      phoneNumber: '',
+      email: '',
+      businessName: ''
+    });
+    setIsSuccess(false);
+  };
+  
   return (
     <section id="contact" className="py-32 bg-white">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
