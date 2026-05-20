@@ -8,9 +8,9 @@ const Hero: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="lg:w-3/5 text-center lg:text-left">
-            <div className="inline-block px-4 py-1.5 bg-googleBlue/10 text-googleBlue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+            {/* <div className="inline-block px-4 py-1.5 bg-googleBlue/10 text-googleBlue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
               Raipur’s No. 1 Agency
-            </div>
+            </div> */}
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-8">
               Grow Your Local Business with <span className="text-googleBlue">
                 <span className="text-googleBlue">G</span>
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
               </span> <span className="text-googleBlue">Maps</span>
             </h1>
             <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
-              We help local businesses rank always on Google Search 1st Page and get more real customers in Raipur's local market today.
+              India’s trusted Google Maps growth agency for businesses that want to appear at the top of Google search results.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
               <a 
