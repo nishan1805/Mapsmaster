@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
       </div>
           
           <p className="text-gray-400 text-base mb-10 leading-relaxed font-normal">
-            Raipur's leading Google My Business and Local SEO consultancy. We transform local visibility into measurable business growth.
+            Trusted Google Maps SEO services for businesses across India.
           </p>
 
           <div className="flex gap-6">
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center w-full gap-6">
           <p className="text-gray-500 text-sm font-semibold">
-            © {new Date().getFullYear()} MapsMaster Raipur.
+            © {new Date().getFullYear()} MapsMaster. All Rights Reserved.
           </p>
           <div className="flex gap-8">
             <a href="#" className="text-gray-500 hover:text-white text-xs uppercase tracking-widest font-bold transition-all">Privacy Policy</a>
