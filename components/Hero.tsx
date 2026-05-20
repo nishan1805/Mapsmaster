@@ -37,8 +37,8 @@ const Hero: React.FC = () => {
               >
                 Our Packages
               </a>
-            </div>
-          </div> */}
+            </div>*/}
+          </div>
 
           <div className="lg:w-1/2 w-full relative px-4 sm:px-0">
             <div className="relative z-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl">
