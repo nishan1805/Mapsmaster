@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
             <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
               India’s trusted Google Maps growth agency for businesses that want to appear at the top of Google search results.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+            {/* <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
               <a 
                 href="#services"
                 className="w-full sm:w-auto bg-googleBlue text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-navy transition-all transform hover:-translate-y-1 shadow-lg shadow-blue-200 text-center"
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
                 Our Packages
               </a>
             </div>
-          </div>
+          </div> */}
 
           <div className="lg:w-1/2 w-full relative px-4 sm:px-0">
             <div className="relative z-10 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl lg:shadow-2xl">
