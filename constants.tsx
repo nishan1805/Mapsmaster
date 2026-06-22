@@ -107,10 +107,6 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const CLIENT_LOGOS = [
-  'Raipur Homes', 'Raipur Builder', 'Gurukul School', 'Laxmi Telecom'
-];
-
-export const CLIENT_LOGOS = [
   '/clients/client1.png',
   '/clients/client2.png',
   '/clients/client3.png',
