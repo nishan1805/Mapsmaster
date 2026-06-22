@@ -88,21 +88,21 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Rajesh Sharma',
     business: 'Sharma Auto Works',
     text: 'MapsMaster helped our garage get 3x more calls within 2 months. The GMB optimization was a game changer for us.',
-    image: 'https://picsum.photos/id/64/100/100',
+    image: '/rajesh.png',
   },
   {
     id: '2',
     name: 'Anjali Gupta',
     business: 'Gupta Sweets & Snacks',
     text: 'Since working with the team, we are always in the top 3 on Google Maps. Our weekend sales have increased significantly.',
-    image: 'https://picsum.photos/id/65/100/100',
+    image: '/anjali.png',
   },
   {
     id: '3',
     name: 'Vikram Singh',
     business: 'Singh Real Estate',
     text: 'Professional, affordable, and results-driven. They understand the local market in Raipur perfectly.',
-    image: 'https://picsum.photos/id/91/100/100',
+    image: '/vikram.png',
   },
 ];
 
