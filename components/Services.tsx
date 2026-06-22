@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Rocket, TrendingUp, Crown, Check, X, PlusCircle, Sparkles, Phone, Shield } from 'lucide-react';
 
 // Sub-components: Custom Icons
@@ -534,11 +534,8 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
           {/* Active Tab Info */}
           <div className="text-left mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-gray-100">
             <div className="max-w-2xl text-left">
-              <h4 className="text-xl md:text-2xl font-bold text-navy mb-3 flex items-center justify-start gap-3 text-left">
-                <span className={`p-1.5 rounded-lg shrink-0 inline-flex items-center justify-center ${currentTab.bgLight}`}>
-                  {currentTab.icon(getHeadingColorClass(currentTab))}
-                </span>
-                <span>{currentTab.name}</span>
+              <h4 className="text-xl md:text-2xl font-bold text-navy mb-3 text-left">
+                {currentTab.name}
               </h4>
               <p className="text-gray-600 text-sm md:text-base leading-relaxed text-left">
                 {currentTab.description}
@@ -586,10 +583,10 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
               ref={cardsContainerRef}
               onScroll={handleScroll}
               className={currentTab.plans.length === 1 
-                ? "flex justify-center items-stretch overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pt-6 pb-8 md:pt-4 md:pb-0 -mx-4 md:mx-0 w-full"
+                ? "flex justify-center md:justify-start items-stretch pt-6 pb-8 md:pt-4 md:pb-0 px-5 md:px-0 w-full"
                 : `flex md:grid ${currentTab.plans.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'md:grid-cols-3'} gap-4 md:gap-8 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pt-6 pb-8 md:pt-4 md:pb-0 -mx-4 md:mx-0 justify-start md:justify-center`
               }
-              style={isMobile ? {
+              style={isMobile && currentTab.plans.length > 1 ? {
                 paddingLeft: '20px',
                 paddingRight: '20px',
                 scrollPaddingLeft: '20px',
@@ -616,7 +613,7 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
                     key={plan.id}
                     className={`relative flex flex-col p-6 md:p-8 rounded-[2rem] bg-white transition-all duration-300 shadow-sm border snap-start shrink-0 ${
                       currentTab.plans.length === 1
-                        ? 'w-[88vw] max-w-[350px] md:w-full md:max-w-[350px]'
+                        ? 'w-full max-w-[350px] md:w-full md:max-w-[350px]'
                         : 'w-[73vw] sm:w-[325px] md:w-full md:max-w-none'
                     } group select-none hover:shadow-xl ${
                       isRecommended 
