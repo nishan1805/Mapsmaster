@@ -4,18 +4,6 @@ import { Service, PricingPlan, Testimonial } from './types';
 
 export const SERVICES: Service[] = [
   {
-    id: 'gmb-opt',
-    title: 'Google Business Profile Optimization',
-    description: 'Optimize your GMB profile to appear in the local pack and attract more walk-ins.',
-    icon: '📍',
-  },
-  {
-    id: 'local-seo',
-    title: 'Local Business SEO',
-    description: 'Dominating local search queries to ensure neighborhood customers find you first.',
-    icon: '🗺️',
-  },
-  {
     id: 'lead-gen',
     title: 'Lead Generation',
     description: 'High-quality lead generation strategies tailored for local businesses to drive real sales.',
@@ -28,16 +16,16 @@ export const SERVICES: Service[] = [
     icon: '📈',
   },
   {
-    id: 'web-dev',
-    title: 'Web Development',
-    description: 'Custom websites and web applications built to drive conversions and showcase your business professionally.',
-    icon: '💻',
+    id: 'gmb-opt',
+    title: 'Google Business Profile Optimization',
+    description: 'Optimize your GMB profile to appear in the local pack and attract more walk-ins.',
+    icon: '📍',
   },
   {
-    id: 'ui-ux',
-    title: 'UI/UX Design',
-    description: 'User-focused design solutions that enhance customer experience and boost engagement rates.',
-    icon: '🎨',
+    id: 'local-seo',
+    title: 'Local Business SEO',
+    description: 'Dominating local search queries to ensure neighborhood customers find you first.',
+    icon: '🗺️',
   },
 ];
 
@@ -46,15 +34,13 @@ export const PRICING_PLANS: PricingPlan[] = [
     id: 'starter',
     name: 'Starter',
     price: '₹1,250',
-    description: 'Perfect for businesses starting their Google Business visibility journey.',
+    description: 'Perfect for small shops looking to get started with local visibility.',
     features: [
       'GBP Setup & Optimization',
       'Basic Keyword Optimization',
       '4 Google Posts per month',
       '2 Product Updates per month',
       'Unlimited Photo Uploads',
-      'Review Management',
-      'Visibility Boost Ranking Strategy',
       'Standard Support',
       'Monthly Report'
     ],
@@ -63,15 +49,15 @@ export const PRICING_PLANS: PricingPlan[] = [
     id: 'growth',
     name: 'Growth',
     price: '₹2,000',
-    description: 'Ideal for growing businesses aiming for strong first-page presence.',
+    description: 'Comprehensive plan for scaling businesses wanting to dominate their area.',
     features: [
       'GBP Setup & Optimization',
-      'Keyword Optimization (Up to 10 Keywords)',
+      'Up to 10 Keywords',
       '8 Google Posts per month',
       '4 Product Updates per month',
       'Unlimited Photo Uploads',
       'Review Management',
-      'Strong First-Page Push Ranking Strategy',
+      'Strong First-Page Ranking Push',
       'Priority Support',
       'Monthly Report'
     ],
@@ -84,12 +70,12 @@ export const PRICING_PLANS: PricingPlan[] = [
     description: 'The ultimate package for multiple locations and maximum lead volume.',
     features: [
       'GBP Setup & Optimization',
-      'Keyword Optimization (Up to 20 Keywords)',
+      'Up to 20 Keywords',
       'Weekly Google Posts',
       'Weekly Product Updates',
       'Unlimited Photo Uploads',
       'Priority Review Management',
-      'Aggressive Top-Position Push Strategy',
+      'Aggressive Top-Position Ranking Strategy',
       'Dedicated Priority Support',
       'Detailed Monthly Report'
     ],
@@ -118,6 +104,10 @@ export const TESTIMONIALS: Testimonial[] = [
     text: 'Professional, affordable, and results-driven. They understand the local market in Raipur perfectly.',
     image: 'https://picsum.photos/id/91/100/100',
   },
+];
+
+export const CLIENT_LOGOS = [
+  'Raipur Homes', 'Raipur Builder', 'Gurukul School', 'Laxmi Telecom'
 ];
 
 export const CLIENT_LOGOS = [
