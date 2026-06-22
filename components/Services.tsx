@@ -508,16 +508,6 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
     }
   };
 
-    if (onSelectPackage) {
-      onSelectPackage(optionName);
-    }
-
-    const contactElem = document.getElementById("contact");
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="services" className="py-24 bg-gray-50/50">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
