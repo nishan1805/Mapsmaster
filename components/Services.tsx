@@ -465,19 +465,48 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
   };
 
   const handleGetThisPlan = (plan: Plan) => {
-    let optionName = "";
-    if (currentTab.id === 'gmb-opt') {
-      if (plan.id === 'starter') optionName = "Google Business Optimization → Starter Plan";
-      if (plan.id === 'growth') optionName = "Google Business Optimization → Growth Plan";
-      if (plan.id === 'pro') optionName = "Google Business Optimization → Pro Plan";
+  let optionName = "";
+ 
+    if (currentTab.id === 'gmb-opt') { 
+      if (plan.id === 'starter')
+        optionName = "Starter Plan";
+
+      if (plan.id === 'growth')
+        optionName = "Growth Plan";
+
+      if (plan.id === 'pro') 
+        optionName = "Pro Plan";
+
     } else if (currentTab.id === 'new-profile') {
-      if (plan.id === 'basic-creation') optionName = "New Profile Creation → Basic Profile Creation";
-      if (plan.id === 'optimized-creation') optionName = "New Profile Creation → Optimized Profile Creation";
+
+      if (plan.id === 'basic-creation')
+        optionName = "Basic Profile Creation";
+
+      if (plan.id === 'optimized-creation')
+        optionName = "Optimized Profile Creation";
+
     } else if (currentTab.id === 'call-button') {
+
       optionName = "Call Activation Plan";
+
     } else if (currentTab.id === 'recovery') {
+
       optionName = "Account Recovery Plan";
+  
     }
+
+    if (onSelectPackage) { 
+      onSelectPackage(optionName);
+    }
+
+    const contactElem = document.getElementById("contact");
+
+    if (contactElem) {
+      contactElem.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  };
 
     if (onSelectPackage) {
       onSelectPackage(optionName);
