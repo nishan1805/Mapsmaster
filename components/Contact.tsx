@@ -1,16 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  selectedService?: string;
+  onSelectedServiceChange?: (service: string) => void;
+}
+
+const Contact: React.FC<ContactProps> = ({
+  selectedService,
+  onSelectedServiceChange
+}) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    businessName: '',
+    interestedService: ''
+  });
+
+  useEffect(() => {
+    if (selectedService) {
+      setFormData(prev => ({
+        ...prev,
+        interestedService: selectedService
+      }));
+    }
+  }, [selectedService]);
+
+  // handleChange...
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
-    businessName: ''
+    businessName: '',
+    interestedService: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  if (onSelectedServiceChange) {
+    onSelectedServiceChange('');
+  }
+  
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -22,12 +60,13 @@ const Contact: React.FC = () => {
   setIsSubmitting(true);
 
   const message = `
-  New Inquiry from MapsMaster Website
+New Inquiry from MapsMaster Website
 
-  Full Name: ${formData.fullName}
-  Phone Number: ${formData.phoneNumber}
-  Business Name: ${formData.businessName}
-   `;
+Full Name: ${formData.fullName}
+Phone Number: ${formData.phoneNumber}
+Business Name: ${formData.businessName}
+Interested Service: ${formData.interestedService}
+`;
 
   // Replace with your WhatsApp number (country code + number, no + sign)
   const whatsappNumber = "919179775502";
@@ -45,12 +84,12 @@ const Contact: React.FC = () => {
    setIsSuccess(true);
   };
   
-  const resetForm = () => {
-    setFormData({
-      fullName: '',
-      phoneNumber: '',
-      businessName: ''
-    });
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    businessName: '',
+    interestedService: ''
+  });
     setIsSuccess(false);
   };
   
@@ -154,6 +193,36 @@ const Contact: React.FC = () => {
                             onChange={handleChange}
                             className="w-full bg-gray-50 border-0 rounded-2xl p-5 text-base focus:ring-2 focus:ring-googleBlue transition-all outline-none" 
                           />
+                        </div>
+            
+                        <div className="space-y-3">
+                          <label className="text-sm font-bold text-navy uppercase tracking-widest">
+                            Interested Service
+                          </label>
+                          <select
+                            name="interestedService"
+                            value={formData.interestedService}
+                            onChange={handleChange}
+                            required
+                            className="w-full bg-gray-50 border-0 rounded-2xl p-5 text-base focus:ring-2 focus:ring-googleBlue transition-all outline-none"
+                            >
+                            <option value="">Select Service</option>
+                            <option value="Starter Plan">Starter Plan</option>
+                            <option value="Growth Plan">Growth Plan</option>
+                            <option value="Pro Plan">Pro Plan</option>
+                            <option value="Basic Profile Creation">
+                              Basic Profile Creation
+                            </option> 
+                            <option value="Optimized Profile Creation">
+                              Optimized Profile Creation
+                            </option>
+                            <option value="Call Activation Plan">
+                              Call Activation Plan
+                            </option>
+                            <option value="Account Recovery Plan">
+                              Account Recovery Plan
+                            </option>
+                          </select>
                         </div>
                       </div>
                       <button 
