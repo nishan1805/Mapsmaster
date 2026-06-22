@@ -30,21 +30,6 @@ const Contact: React.FC<ContactProps> = ({
       }));
     }
   }, [selectedService]);
-
-  // handleChange...
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    businessName: '',
-    interestedService: ''
-  });
-
-  if (onSelectedServiceChange) {
-    onSelectedServiceChange('');
-  }
   
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -53,8 +38,9 @@ const Contact: React.FC<ContactProps> = ({
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+
   if (isSubmitting) return;
 
   setIsSubmitting(true);
@@ -68,6 +54,34 @@ Business Name: ${formData.businessName}
 Interested Service: ${formData.interestedService}
 `;
 
+  const whatsappNumber = "919179775502";
+
+  const whatsappUrl =
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  window.open(whatsappUrl, "_blank");
+
+  setIsSubmitting(false);
+  setIsSuccess(true);
+};
+
+const resetForm = () => {
+  setFormData({
+    fullName: '',
+    phoneNumber: '',
+    businessName: '',
+    interestedService: ''
+  });
+
+  setIsSuccess(false);
+
+  if (onSelectedServiceChange) {
+    onSelectedServiceChange('');
+  }
+};
+  
   // Replace with your WhatsApp number (country code + number, no + sign)
   const whatsappNumber = "919179775502";
 
