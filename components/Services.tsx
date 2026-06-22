@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from "framer-motion";
 import { Rocket, TrendingUp, Crown, Check, X, PlusCircle, Sparkles, Phone, Shield } from 'lucide-react';
 
 // Sub-components: Custom Icons
