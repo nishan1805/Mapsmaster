@@ -82,31 +82,6 @@ const resetForm = () => {
   }
 };
   
-  // Replace with your WhatsApp number (country code + number, no + sign)
-  const whatsappNumber = "919179775502";
-
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-  // Optional 1-second loading effect
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  // Open WhatsApp in a new tab
-  window.open(whatsappUrl, "_blank");
-
-  // Show success screen
-   setIsSubmitting(false);
-   setIsSuccess(true);
-  };
-  
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    businessName: '',
-    interestedService: ''
-  });
-    setIsSuccess(false);
-  };
-  
   return (
     <section id="contact" className="py-32 bg-white">
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
