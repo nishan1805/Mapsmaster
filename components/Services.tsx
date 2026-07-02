@@ -98,11 +98,11 @@ const TABS_DATA: ServiceTab[] = [
         features: [
           'GBP Setup & Optimization',
           'Keyword Optimization (Up to 5 Keywords)',
-          '8 Google Posts/month',
+          '8 Google Posts / Month',
           '8 Product Listings / Month',
           'Review Management',
           'Competitor Analysis',
-          'Monthly Performance Report'
+          'Monthly Performance Reports'
         ],
         additionalInfo: {
           deliverables: 'Complete core profile audit, Google Maps structural verification setup, and basic monthly metric tracking report.',
@@ -123,12 +123,12 @@ const TABS_DATA: ServiceTab[] = [
         features: [
           'GBP Setup & Optimization',
           'Keyword Optimization (Up to 10 Keywords)',
-          '12 Google Posts/month',
-          '12 Product Listings/month',
+          '12 Google Posts / Month',
+          '12 Product Listings / Month',
           'High-Quality Local Backlinks',
           'Review Management',
           'Competitor Analysis',
-          'Monthly Performance Report'
+          'Monthly Performance Reports'
         ],
         additionalInfo: {
           deliverables: 'In-depth local competitor keyword benchmarking, Geo-tagged photo additions, custom review response scripts, and local citation audit.',
@@ -298,6 +298,16 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
   const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const activeServiceRef = useRef<HTMLDivElement>(null);
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    setTimeout(() => {
+      if (activeServiceRef.current) {
+        activeServiceRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
+  };
   
   const currentTab = TABS_DATA.find(t => t.id === activeTab) || TABS_DATA[0];
 
@@ -471,46 +481,27 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
   };
 
   const handleGetThisPlan = (plan: Plan) => {
-  let optionName = "";
- 
-    if (currentTab.id === 'gmb-opt') { 
-      if (plan.id === 'starter')
-        optionName = "Starter Plan";
-
-      if (plan.id === 'growth')
-        optionName = "Growth Plan";
-
-      if (plan.id === 'pro') 
-        optionName = "Pro Plan";
-
+    let optionName = "";
+    if (currentTab.id === 'gmb-opt') {
+      if (plan.id === 'starter') optionName = "Google Business Optimization → Starter Plan";
+      if (plan.id === 'growth') optionName = "Google Business Optimization → Growth Plan";
+      if (plan.id === 'pro') optionName = "Google Business Optimization → Pro Plan";
     } else if (currentTab.id === 'new-profile') {
-
-      if (plan.id === 'basic-creation')
-        optionName = "Basic Profile Creation";
-
-      if (plan.id === 'optimized-creation')
-        optionName = "Optimized Profile Creation";
-
+      if (plan.id === 'basic-creation') optionName = "New Profile Creation → Basic Profile Creation";
+      if (plan.id === 'optimized-creation') optionName = "New Profile Creation → Optimized Profile Creation";
     } else if (currentTab.id === 'call-button') {
-
       optionName = "Call Activation Plan";
-
     } else if (currentTab.id === 'recovery') {
-
       optionName = "Account Recovery Plan";
-  
     }
 
-    if (onSelectPackage) { 
+    if (onSelectPackage) {
       onSelectPackage(optionName);
     }
 
     const contactElem = document.getElementById("contact");
-
     if (contactElem) {
-      contactElem.scrollIntoView({
-        behavior: "smooth"
-      });
+      contactElem.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -539,7 +530,7 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => handleTabChange(tab.id)}
                   className={`flex items-center gap-2 px-5 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                     isActive 
                       ? 'bg-navy text-white shadow-md' 
@@ -555,7 +546,7 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
         </div>
 
         {/* Content Box with motion wrapper */}
-        <div className="max-w-6xl mx-auto">
+        <div ref={activeServiceRef} className="max-w-6xl mx-auto scroll-mt-28">
           {/* Active Tab Info */}
           <div className="text-left mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-gray-100">
             <div className="max-w-2xl text-left">
@@ -924,114 +915,149 @@ const ServicesPricing: React.FC<ServicesPricingProps> = ({ onSelectPackage, onCo
                     </thead>
                     <tbody className="divide-y divide-gray-100 font-sans">
                       
-                      {/* Price Row */}
+                      {/* Monthly Pricing */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
                           Monthly Pricing
                         </td>
-                        <td className="p-3 md:p-5 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
                           <span className="font-extrabold text-navy">₹1,999</span>
                           <span className="text-gray-400 text-[10px]">/month</span>
                         </td>
-                        <td className="p-3 md:p-5 bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
                           <span className="font-extrabold text-googleBlue">₹2,999</span>
                           <span className="text-gray-400 text-[10px]">/month</span>
                         </td>
-                        <td className="p-3 md:p-5 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
                           <span className="font-extrabold text-navy">₹4,999</span>
                           <span className="text-gray-400 text-[10px]">/month</span>
                         </td>
                       </tr>
 
-                      {/* Yearly Effective row */}
-                      <tr className="hover:bg-gray-50/50 bg-gray-50/25">
+                      {/* GBP Setup & Optimization */}
+                      <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Yearly (Effective)
+                          GBP Setup & Optimization
                         </td>
-                        <td className="p-3 md:p-5 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none text-googleGreen font-semibold">
-                          ₹1,250<span className="text-[10px]">/mo</span>
-                          <div className="text-[9px] text-gray-450 font-medium font-sans">Save ₹9,000 / year</div>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
                         </td>
-                        <td className="p-3 md:p-5 bg-blue-50/45 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none text-googleGreen font-bold">
-                          ₹2,000<span className="text-[10px]">/mo</span>
-                          <div className="text-[9px] text-gray-505 font-bold font-sans">Save ₹12,000 / year</div>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
                         </td>
-                        <td className="p-3 md:p-5 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none text-googleGreen font-semibold">
-                          ₹3,000<span className="text-[10px]">/mo</span>
-                          <div className="text-[9px] text-gray-450 font-medium font-sans">Save ₹24,000 / year</div>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
                         </td>
                       </tr>
 
+                      {/* Keyword Optimization */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          GBP Setup
+                          Keyword Optimization
                         </td>
-                        <td className="p-3 md:p-5 text-googleBlue font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">✓</td>
-                        <td className="p-3 md:p-5 text-googleBlue font-bold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">✓</td>
-                        <td className="p-3 md:p-5 text-googleBlue font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">✓</td>
+                        <td className="p-3 md:p-5 text-center text-gray-650 font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Up to 5 Keywords</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Up to 10 Keywords</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Up to 20 Keywords</td>
                       </tr>
 
+                      {/* Google Posts / Month */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Keywords
+                          Google Posts / Month
                         </td>
-                        <td className="p-3 md:p-5 text-gray-600 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Basic Config</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Up to 10 Keywords</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Up to 20 Keywords</td>
+                        <td className="p-3 md:p-5 text-center text-gray-600 font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">8</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-bold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">12</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">16</td>
                       </tr>
 
+                      {/* Product Listings / Month */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Google Posts
+                          Product Listings / Month
                         </td>
-                        <td className="p-3 md:p-5 text-gray-500 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">4 / month</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">8 / month</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Weekly posts</td>
+                        <td className="p-3 md:p-5 text-center text-gray-600 font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">8</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-bold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">12</td>
+                        <td className="p-3 md:p-5 text-center text-navy font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">16</td>
                       </tr>
 
+                      {/* High-Quality Local Backlinks */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Product Updates
+                          High-Quality Local Backlinks
                         </td>
-                        <td className="p-3 md:p-5 text-gray-500 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">2 / month</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">4 / month</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Weekly updates</td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#EF4444] text-[18px] md:text-[20px] font-extrabold select-none">✕</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
                       </tr>
 
+                      {/* High-Quality Business Citations */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Photo Uploads
+                          High-Quality Business Citations
                         </td>
-                        <td className="p-3 md:p-5 text-gray-650 font-medium font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Unlimited</td>
-                        <td className="p-3 md:p-5 text-navy font-bold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Unlimited</td>
-                        <td className="p-3 md:p-5 text-gray-650 font-medium font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Unlimited</td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#EF4444] text-[18px] md:text-[20px] font-extrabold select-none">✕</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#EF4444] text-[18px] md:text-[20px] font-extrabold select-none">✕</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
                       </tr>
 
+                      {/* Review Management */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Reviews Mod.
+                          Review Management
                         </td>
-                        <td className="p-3 md:p-5 text-googleBlue font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">✓</td>
-                        <td className="p-3 md:p-5 text-googleBlue font-bold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">✓</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Priority Response</td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
                       </tr>
 
+                      {/* Competitor Analysis */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Monthly Report
+                          Competitor Analysis
                         </td>
-                        <td className="p-3 md:p-5 text-gray-500 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Standard Overview</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Enhanced Analytics</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Detailed & Audited</td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
                       </tr>
 
+                      {/* Monthly Performance Reports */}
                       <tr className="hover:bg-gray-50/50">
                         <td className="p-3 md:p-5 font-bold text-navy sticky left-0 bg-white z-20 border-r border-gray-100 shadow-[2px_0_5px_rgba(0,0,0,0.03)] w-[110px] min-w-[110px] max-w-[110px] md:w-1/4 md:min-w-0 md:max-w-none">
-                          Support
+                          Monthly Performance Reports
                         </td>
-                        <td className="p-3 md:p-5 text-gray-500 font-sans font-medium w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Standard Support</td>
-                        <td className="p-3 md:p-5 text-navy font-semibold bg-blue-50/30 font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Priority Support</td>
-                        <td className="p-3 md:p-5 text-navy font-bold font-sans w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">Dedicated Manager</td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center bg-blue-50/30 w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
+                        <td className="p-3 md:p-5 text-center w-[130px] min-w-[130px] max-w-[130px] md:w-1/4 md:min-w-0 md:max-w-none">
+                          <span className="text-[#22C55E] text-[18px] md:text-[20px] font-extrabold select-none">✓</span>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
