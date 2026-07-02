@@ -97,11 +97,12 @@ const TABS_DATA: ServiceTab[] = [
         description: 'Perfect for businesses starting their local visibility journey.',
         features: [
           'GBP Setup & Optimization',
-          'Keyword Optimization',
-          '4 Google Posts/month',
+          'Keyword Optimization (Up to 5 Keywords)',
+          '8 Google Posts/month',
+          '8 Product Listings / Month',
           'Review Management',
-          'Monthly Performance Report',
-          'Basic Support'
+          'Competitor Analysis',
+          'Monthly Performance Report'
         ],
         additionalInfo: {
           deliverables: 'Complete core profile audit, Google Maps structural verification setup, and basic monthly metric tracking report.',
@@ -122,10 +123,12 @@ const TABS_DATA: ServiceTab[] = [
         features: [
           'GBP Setup & Optimization',
           'Keyword Optimization (Up to 10 Keywords)',
-          '8 Google Posts/month',
+          '12 Google Posts/month',
+          '12 Product Listings/month',
+          'High-Quality Local Backlinks',
           'Review Management',
-          'Monthly Performance Report',
-          'Priority Support'
+          'Competitor Analysis',
+          'Monthly Performance Report'
         ],
         additionalInfo: {
           deliverables: 'In-depth local competitor keyword benchmarking, Geo-tagged photo additions, custom review response scripts, and local citation audit.',
@@ -145,10 +148,13 @@ const TABS_DATA: ServiceTab[] = [
         features: [
           'GBP Setup & Optimization',
           'Keyword Optimization (Up to 20 Keywords)',
-          'Weekly Google Posts',
-          'Priority Review Management',
-          'Detailed Monthly Report',
-          'Premium Support'
+          '16 Google Posts / Month',
+          '16 Product Listings / Month',
+          'High-Quality Local Backlinks',
+          'High-Quality Business Citations',
+          'Review Management',
+          'Competitor Analysis',
+          'Monthly Performance Reports'
         ],
         additionalInfo: {
           deliverables: 'Full-pack local takeover strategy, geo-grid heatmap tracking reports, custom CTA links mapping, automated call analytics.',
