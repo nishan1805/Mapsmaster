@@ -41,11 +41,11 @@ const Header: React.FC = () => {
 }, [isMenuOpen]);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Packages', href: '#packages' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  { name: 'Services', href: '#services' },
+  { name: 'Clients', href: '#clients' },
+  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'Contact', href: '#contact' },
+];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white/95 py-5'}`}>
