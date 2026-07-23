@@ -397,7 +397,7 @@ const Services: React.FC<ServicesProps> = ({
                       </div>
 
                       <button
-                        onClick={() => handleGetThisPlan("Google Business Optimization → Starter Plan")}
+                        onClick={() => handleGetThisPlan("Starter Plan")}
                         className="w-full mt-6 py-3.5 px-6 rounded-xl font-bold text-sm bg-white text-navy border-2 border-navy hover:bg-navy hover:text-white transition-colors duration-300"
                       >
                         Get This Plan
@@ -478,7 +478,7 @@ const Services: React.FC<ServicesProps> = ({
                       </div>
 
                       <button
-                        onClick={() => handleGetThisPlan("Google Business Optimization → Growth Plan")}
+                        onClick={() => handleGetThisPlan("Growth Plan")}
                         className="w-full mt-6 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
                       >
                         Get This Plan
@@ -555,7 +555,7 @@ const Services: React.FC<ServicesProps> = ({
                       </div>
 
                       <button
-                        onClick={() => handleGetThisPlan("Google Business Optimization → Pro Plan")}
+                        onClick={() => handleGetThisPlan("Pro Plan")}
                         className="w-full mt-6 py-3.5 px-6 rounded-xl font-bold text-sm bg-white text-navy border-2 border-navy hover:bg-navy hover:text-white transition-colors duration-300"
                       >
                         Get This Plan
@@ -642,7 +642,7 @@ const Services: React.FC<ServicesProps> = ({
                       </div>
 
                       <button
-                        onClick={() => handleGetThisPlan("New Profile Creation → Basic Profile Creation")}
+                        onClick={() => handleGetThisPlan("Basic Profile Creation")}
                         className="w-full mt-6 py-3.5 px-6 rounded-xl font-bold text-sm bg-white text-navy border-2 border-navy hover:bg-navy hover:text-white transition-colors duration-300"
                       >
                         Get This Plan
@@ -708,7 +708,7 @@ const Services: React.FC<ServicesProps> = ({
                       </div>
 
                       <button
-                        onClick={() => handleGetThisPlan("New Profile Creation → Optimized Profile Creation")}
+                        onClick={() => handleGetThisPlan("Optimized Profile Creation")}
                         className="w-full mt-6 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
                       >
                         Get This Plan
