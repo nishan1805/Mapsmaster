@@ -3,7 +3,10 @@ import { CLIENT_LOGOS } from '../constants';
 
 const Clients: React.FC = () => {
   return (
-    <section className="py-16 bg-navy overflow-hidden">
+    <section
+      id="clients"
+      className="py-16 bg-navy overflow-hidden"
+      >
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12 mb-12">
         <div className="flex flex-col items-center">
           <h2 className="text-center text-white text-3xl md:text-4xl font-bold tracking-tight mb-4">
