@@ -208,8 +208,14 @@ const resetForm = () => {
                             <option value="Call Activation Plan">
                               Call Activation Plan
                             </option>
-                            <option value="Account Recovery Plan">
-                              Account Recovery Plan
+                            <option value="Suspended Account Recovery">
+                              Suspended Account Recovery
+                            </option>
+                            <option value="Profile Verification">
+                              Profile Verification
+                            </option>
+                            <option value="Others">
+                              Others
                             </option>
                           </select>
                         </div>
