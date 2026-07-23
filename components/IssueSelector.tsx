@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { HelpCircle, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface IssueSelectorProps {
   onSelectIssue: (serviceId: string) => void;
