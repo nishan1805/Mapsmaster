@@ -281,23 +281,16 @@ const Services: React.FC<ServicesProps> = ({
                 <div>
                   {/* Header */}
                   <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-googleBlue/10 text-googleBlue rounded-full text-xs font-extrabold uppercase tracking-wider mb-3">
-                      <TrendingUp className="w-4 h-4" />
-                      Google Business Profile Optimization
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
                       Choose Your Optimization Plan
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">
-                      Boost local search ranking, attract high-intent calls, and dominate Google Maps in your area.
-                    </p>
 
                     {/* Monthly / Yearly Toggle */}
-                    <div className="flex items-center justify-center gap-3 mt-6 bg-gray-50 p-1.5 rounded-2xl border border-gray-200/80 w-fit mx-auto">
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 bg-gray-50 p-1.5 rounded-2xl border border-gray-200/80 w-fit max-w-full mx-auto">
                       <button
                         type="button"
                         onClick={() => setIsYearly(false)}
-                        className={`text-xs sm:text-sm font-bold px-4 py-2 rounded-xl transition-all ${
+                        className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all shrink-0 ${
                           !isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
                         }`}
                       >
@@ -306,29 +299,29 @@ const Services: React.FC<ServicesProps> = ({
                       <button
                         type="button"
                         onClick={() => setIsYearly(!isYearly)}
-                        className="w-12 h-6 bg-gray-200 rounded-full cursor-pointer relative flex items-center px-1 border border-gray-300 transition-colors"
+                        className="w-11 sm:w-12 h-6 bg-gray-200 rounded-full cursor-pointer relative flex items-center px-1 border border-gray-300 transition-colors shrink-0"
                       >
-                        <div className={`w-4 h-4 rounded-full bg-navy shadow-xs transition-transform duration-300 ${isYearly ? 'translate-x-6' : 'translate-x-0'}`} />
+                        <div className={`w-4 h-4 rounded-full bg-navy shadow-xs transition-transform duration-300 ${isYearly ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'}`} />
                       </button>
                       <button
                         type="button"
                         onClick={() => setIsYearly(true)}
-                        className={`text-xs sm:text-sm font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-2 ${
+                        className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 sm:gap-2 shrink-0 ${
                           isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
                         }`}
                       >
-                        <span>Yearly</span>
-                        <span className="text-[10px] bg-googleGreen text-white px-2 py-0.5 font-bold rounded-full uppercase">
-                          Save up to ₹24k
+                        <span className="whitespace-nowrap">Yearly</span>
+                        <span className="text-[9px] sm:text-[10px] bg-googleGreen text-white px-2 py-0.5 font-bold rounded-full uppercase whitespace-nowrap shrink-0">
+                          20% OFF
                         </span>
                       </button>
                     </div>
                   </div>
 
-                  {/* 3 Package Cards Grid - Vertical Layout */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                  {/* 3 Package Cards - Horizontal scroll on mobile, 3-col grid on desktop */}
+                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:pb-0 md:pt-0 md:mx-0 md:px-0 md:overflow-visible items-stretch">
                     {/* Starter Plan */}
-                    <div className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
+                    <div className="w-[80vw] max-w-[320px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
                         <div className="flex items-center gap-3 mb-3">
                           <span className="p-2.5 bg-blue-50 text-googleBlue rounded-xl">
@@ -339,12 +332,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹1,250' : '₹1,999'}
+                            {isYearly ? '₹1,600' : '₹1,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹9k/yr
+                              Save ₹4,788/yr
                             </span>
                           )}
                         </div>
@@ -405,7 +398,7 @@ const Services: React.FC<ServicesProps> = ({
                     </div>
 
                     {/* Growth Plan (Most Popular) */}
-                    <div className="bg-white rounded-3xl border-2 border-googleBlue p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between relative ring-4 ring-googleBlue/5 mt-3 md:mt-0">
+                    <div className="w-[80vw] max-w-[320px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border-2 border-googleBlue p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between relative ring-4 ring-googleBlue/5">
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-googleBlue text-white text-[10px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-widest shadow-xs whitespace-nowrap">
                         Most Popular Choice
                       </div>
@@ -420,12 +413,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹2,000' : '₹2,999'}
+                            {isYearly ? '₹2,400' : '₹2,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹12k/yr
+                              Save ₹7,188/yr
                             </span>
                           )}
                         </div>
@@ -455,7 +448,7 @@ const Services: React.FC<ServicesProps> = ({
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
-                              <span className="font-semibold text-googleBlue">High-Quality Local Backlinks</span>
+                              <span className="font-bold text-googleBlue">High-Quality Local Backlinks</span>
                             </li>
                             <li className="flex items-center gap-2 text-gray-400">
                               <span className="text-[#EF4444] text-lg font-bold select-none">✕</span>
@@ -486,7 +479,7 @@ const Services: React.FC<ServicesProps> = ({
                     </div>
 
                     {/* Pro Plan */}
-                    <div className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
+                    <div className="w-[80vw] max-w-[320px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
                         <div className="flex items-center gap-3 mb-3">
                           <span className="p-2.5 bg-yellow-50 text-googleYellow rounded-xl">
@@ -497,12 +490,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹3,000' : '₹4,999'}
+                            {isYearly ? '₹4,000' : '₹4,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹24k/yr
+                              Save ₹11,988/yr
                             </span>
                           )}
                         </div>
@@ -532,7 +525,7 @@ const Services: React.FC<ServicesProps> = ({
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
-                              <span className="font-bold text-navy">High-Quality Local Backlinks</span>
+                              <span className="font-bold text-googleBlue">High-Quality Local Backlinks</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
@@ -569,22 +562,15 @@ const Services: React.FC<ServicesProps> = ({
               {activeModalId === 'new-profile' && (
                 <div>
                   <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-googleGreen/10 text-googleGreen rounded-full text-xs font-extrabold uppercase tracking-wider mb-3">
-                      <Sparkles className="w-4 h-4" />
-                      New Profile Creation
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      New Profile Creation Packages
+                      Choose Your New Profile Package
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">
-                      Get your Google Business Profile built professionally from scratch for immediate local indexation.
-                    </p>
                   </div>
 
-                  {/* 2 Package Cards Grid - Vertical Layout */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto items-stretch">
+                  {/* 2 Package Cards - Horizontal scroll on mobile, 2-col grid on desktop */}
+                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 max-w-4xl mx-auto md:pb-0 md:pt-0 md:mx-auto md:px-0 md:overflow-visible items-stretch">
                     {/* Basic Profile Creation */}
-                    <div className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
+                    <div className="w-[80vw] max-w-[340px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
                         <div className="flex items-center gap-3 mb-3">
                           <span className="p-2.5 bg-green-50 text-googleGreen rounded-xl">
@@ -607,7 +593,7 @@ const Services: React.FC<ServicesProps> = ({
                           <ul className="space-y-2.5 text-xs md:text-sm text-gray-700 font-medium">
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
-                              <span>New GBP Setup</span>
+                              <span>Complete GBP Setup</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
@@ -628,6 +614,10 @@ const Services: React.FC<ServicesProps> = ({
                             <li className="flex items-center gap-2 text-gray-400">
                               <span className="text-[#EF4444] text-lg font-bold select-none">✕</span>
                               <span className="line-through decoration-gray-300">Products & Services Catalog</span>
+                            </li>
+                            <li className="flex items-center gap-2 text-gray-400">
+                              <span className="text-[#EF4444] text-lg font-bold select-none">✕</span>
+                              <span className="line-through decoration-gray-300">Image Metadata Optimization</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
@@ -650,7 +640,7 @@ const Services: React.FC<ServicesProps> = ({
                     </div>
 
                     {/* Optimized Profile Creation */}
-                    <div className="bg-white rounded-3xl border-2 border-googleGreen p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between relative ring-4 ring-googleGreen/5 mt-3 md:mt-0">
+                    <div className="w-[80vw] max-w-[340px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border-2 border-googleGreen p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between relative ring-4 ring-googleGreen/5">
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-googleGreen text-white text-[10px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-widest shadow-xs whitespace-nowrap">
                         Recommended Setup
                       </div>
@@ -681,11 +671,19 @@ const Services: React.FC<ServicesProps> = ({
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
-                              <span className="font-semibold text-googleGreen">Advanced Category Research</span>
+                              <span>Category Selection</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                              <span>NAP & Address Setup</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
                               <span className="font-semibold text-navy">SEO Optimized Description & Meta</span>
+                            </li>
+                            <li className="flex items-center gap-2">
+                              <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                              <span className="font-semibold text-googleGreen">Advanced Category Research</span>
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
@@ -701,7 +699,7 @@ const Services: React.FC<ServicesProps> = ({
                             </li>
                             <li className="flex items-center gap-2">
                               <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
-                              <span className="font-bold text-navy">30 Days Extended Follow-Through Support</span>
+                              <span className="font-bold text-navy">30 Days Extended Support</span>
                             </li>
                           </ul>
                         </div>
@@ -720,163 +718,169 @@ const Services: React.FC<ServicesProps> = ({
 
               {/* 3. CALL BUTTON ACTIVATION MODAL */}
               {activeModalId === 'call-button' && (
-                <div className="max-w-xl mx-auto py-2">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-googleYellow/10 text-googleYellow flex items-center justify-center mx-auto mb-4">
-                      <Phone className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      Call Activation Plan
+                <div className="max-w-xl mx-auto">
+                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
+                      <span className="p-2.5 bg-yellow-50 text-googleYellow rounded-xl inline-flex items-center justify-center shrink-0">
+                        <Phone className="w-6 h-6 sm:w-7 sm:h-7" />
+                      </span>
+                      <span>Call Button Activation</span>
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">
-                      Enable direct customer calls from your Google Business Profile and improve lead generation.
-                    </p>
-                    <div className="flex items-baseline justify-center gap-1 my-4">
-                      <span className="text-4xl font-black text-navy">₹1,999</span>
-                      <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2 py-0.5 rounded">One-Time</span>
+                  </div>
+
+                  <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-3xl font-black text-navy">₹1,999</span>
+                        <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2.5 py-1 rounded-md">One-Time</span>
+                      </div>
+
+                      <div className="border-t border-gray-150 pt-5 mb-6">
+                        <h5 className="text-[11px] font-bold text-navy uppercase tracking-wider mb-4">Included Features</h5>
+                        <ul className="space-y-3 text-xs md:text-sm text-gray-700 font-medium">
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Call Button Setup & Linkage</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Phone Number Formatting & Verification</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Resolution of Internal GMB Dialing Errors</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Configuration Review & Basic Optimization</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Activation Support & Completion Report</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200/80 mb-6">
-                    <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-4">Package Deliverables</h5>
-                    <ul className="space-y-3 text-sm text-gray-700 font-medium">
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Call Button Setup & Linkage</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Phone Number Formatting & Verification</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Resolution of Internal GMB Dialing Errors</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Configuration Review & Basic Optimization</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Activation Support & Completion Report</span>
-                      </li>
-                    </ul>
+                    <button
+                      onClick={() => handleGetThisPlan("Call Activation Plan")}
+                      className="w-full mt-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
+                    >
+                      Get This Plan
+                    </button>
                   </div>
-
-                  <button
-                    onClick={() => handleGetThisPlan("Call Activation Plan")}
-                    className="w-full py-4 px-8 rounded-xl font-bold text-base bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-lg shadow-blue-100"
-                  >
-                    Get This Plan
-                  </button>
                 </div>
               )}
 
               {/* 4. SUSPENDED ACCOUNT RECOVERY MODAL */}
               {activeModalId === 'recovery' && (
-                <div className="max-w-xl mx-auto py-2">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-googleRed/10 text-googleRed flex items-center justify-center mx-auto mb-4">
-                      <ShieldAlert className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      Account Recovery Plan
+                <div className="max-w-xl mx-auto">
+                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
+                      <span className="p-2.5 bg-red-50 text-googleRed rounded-xl inline-flex items-center justify-center shrink-0">
+                        <ShieldAlert className="w-6 h-6 sm:w-7 sm:h-7" />
+                      </span>
+                      <span>Suspended Account Recovery</span>
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">
-                      Recover suspended Google Business Profiles and restore local business visibility quickly.
-                    </p>
-                    <div className="flex items-baseline justify-center gap-1 my-4">
-                      <span className="text-4xl font-black text-navy">₹2,999</span>
-                      <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2 py-0.5 rounded">One-Time</span>
+                  </div>
+
+                  <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-3xl font-black text-navy">₹2,999</span>
+                        <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2.5 py-1 rounded-md">One-Time</span>
+                      </div>
+
+                      <div className="border-t border-gray-150 pt-5 mb-6">
+                        <h5 className="text-[11px] font-bold text-navy uppercase tracking-wider mb-4">Included Features</h5>
+                        <ul className="space-y-3 text-xs md:text-sm text-gray-700 font-medium">
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Comprehensive Suspension Cause Audit</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Issue & Guidelines Compliance Identification</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Official Reinstatement Submission & Filing</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Recovery Documentation & Case Notes</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Priority Reinstatement Follow-Up Support</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200/80 mb-6">
-                    <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-4">Package Deliverables</h5>
-                    <ul className="space-y-3 text-sm text-gray-700 font-medium">
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Comprehensive Suspension Cause Audit</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Issue & Guidelines Compliance Identification</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Official Reinstatement Submission & Filing</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Recovery Documentation & Case Notes</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Priority Reinstatement Follow-Up Support</span>
-                      </li>
-                    </ul>
+                    <button
+                      onClick={() => handleGetThisPlan("Account Recovery Plan")}
+                      className="w-full mt-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
+                    >
+                      Get This Plan
+                    </button>
                   </div>
-
-                  <button
-                    onClick={() => handleGetThisPlan("Account Recovery Plan")}
-                    className="w-full py-4 px-8 rounded-xl font-bold text-base bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-lg shadow-blue-100"
-                  >
-                    Get This Plan
-                  </button>
                 </div>
               )}
 
               {/* 5. PROFILE VERIFICATION MODAL */}
               {activeModalId === 'verification' && (
-                <div className="max-w-xl mx-auto py-2">
-                  <div className="text-center mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-teal-500/10 text-teal-600 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle2 className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      Profile Verification Plan
+                <div className="max-w-xl mx-auto">
+                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
+                      <span className="p-2.5 bg-teal-50 text-teal-600 rounded-xl inline-flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7" />
+                      </span>
+                      <span>Profile Verification</span>
                     </h3>
-                    <p className="text-gray-500 text-sm mt-2">
-                      Complete Google Business Profile verification quickly and correctly with expert assistance.
-                    </p>
-                    <div className="flex items-baseline justify-center gap-1 my-4">
-                      <span className="text-4xl font-black text-navy">₹2,499</span>
-                      <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2 py-0.5 rounded">One-Time</span>
+                  </div>
+
+                  <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline gap-2 mb-6">
+                        <span className="text-3xl font-black text-navy">₹2,499</span>
+                        <span className="text-gray-400 text-xs font-bold uppercase bg-gray-100 px-2.5 py-1 rounded-md">One-Time</span>
+                      </div>
+
+                      <div className="border-t border-gray-150 pt-5 mb-6">
+                        <h5 className="text-[11px] font-bold text-navy uppercase tracking-wider mb-4">Included Features</h5>
+                        <ul className="space-y-3 text-xs md:text-sm text-gray-700 font-medium">
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Verification Method Selection & Guidance</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Video / Postcard Verification Step-by-Step Help</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Address & Business Document Compliance Review</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Re-Verification & Pending Flag Resolution</span>
+                          </li>
+                          <li className="flex items-center gap-2.5">
+                            <span className="text-[#22C55E] text-lg font-bold select-none">✓</span>
+                            <span>Live Verification Expert Consultation</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200/80 mb-6">
-                    <h5 className="text-xs font-bold text-navy uppercase tracking-wider mb-4">Package Deliverables</h5>
-                    <ul className="space-y-3 text-sm text-gray-700 font-medium">
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Verification Method Selection & Guidance</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Video / Postcard Verification Step-by-Step Help</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Address & Business Document Compliance Review</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Re-Verification & Pending Flag Resolution</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <span className="text-[#22C55E] text-xl font-bold select-none">✓</span>
-                        <span>Live Verification Expert Consultation</span>
-                      </li>
-                    </ul>
+                    <button
+                      onClick={() => handleGetThisPlan("Profile Verification Plan")}
+                      className="w-full mt-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
+                    >
+                      Get This Plan
+                    </button>
                   </div>
-
-                  <button
-                    onClick={() => handleGetThisPlan("Profile Verification Plan")}
-                    className="w-full py-4 px-8 rounded-xl font-bold text-base bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-lg shadow-blue-100"
-                  >
-                    Get This Plan
-                  </button>
                 </div>
               )}
 
