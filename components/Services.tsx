@@ -177,12 +177,12 @@ const Services: React.FC<ServicesProps> = ({
                 <div
                   key={service.id}
                   onClick={() => setActiveModalId(service.id)}
-                  className={`bg-white p-7 md:p-8 rounded-3xl border border-gray-100 shadow-sm ${service.borderHover} hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer relative transform hover:-translate-y-1`}
+                  className={`bg-white p-7 md:p-8 rounded-3xl border border-gray-100 shadow-sm ${service.borderHover} hover:shadow-xl transition-[transform,shadow,border-color] duration-300 flex flex-col justify-between group cursor-pointer relative hover:-translate-y-1`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.iconBg} shadow-xs`}>
-                        <IconComp className="w-7 h-7" />
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.iconBg} shadow-xs shrink-0 select-none pointer-events-none`}>
+                        <IconComp className="w-7 h-7 shrink-0" />
                       </div>
                       
                       {/* Circular Arrow Button */}
@@ -212,12 +212,12 @@ const Services: React.FC<ServicesProps> = ({
                 <div
                   key={service.id}
                   onClick={() => setActiveModalId(service.id)}
-                  className={`bg-white p-7 md:p-8 rounded-3xl border border-gray-100 shadow-sm ${service.borderHover} hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer relative transform hover:-translate-y-1`}
+                  className={`bg-white p-7 md:p-8 rounded-3xl border border-gray-100 shadow-sm ${service.borderHover} hover:shadow-xl transition-[transform,shadow,border-color] duration-300 flex flex-col justify-between group cursor-pointer relative hover:-translate-y-1`}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.iconBg} shadow-xs`}>
-                        <IconComp className="w-7 h-7" />
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${service.iconBg} shadow-xs shrink-0 select-none pointer-events-none`}>
+                        <IconComp className="w-7 h-7 shrink-0" />
                       </div>
 
                       {/* Circular Arrow Button */}
@@ -332,12 +332,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹1,600' : '₹1,999'}
+                            {isYearly ? '₹1,599' : '₹1,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹4,788/yr
+                              Save ₹4,800/yr
                             </span>
                           )}
                         </div>
@@ -413,12 +413,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹2,400' : '₹2,999'}
+                            {isYearly ? '₹2,399' : '₹2,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹7,188/yr
+                              Save ₹7,200/yr
                             </span>
                           )}
                         </div>
@@ -490,12 +490,12 @@ const Services: React.FC<ServicesProps> = ({
                         
                         <div className="flex items-baseline gap-1 my-3">
                           <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹4,000' : '₹4,999'}
+                            {isYearly ? '₹3,999' : '₹4,999'}
                           </span>
                           <span className="text-gray-400 text-xs font-semibold">/month</span>
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹11,988/yr
+                              Save ₹12,000/yr
                             </span>
                           )}
                         </div>
@@ -568,7 +568,7 @@ const Services: React.FC<ServicesProps> = ({
                   </div>
 
                   {/* 2 Package Cards - Horizontal scroll on mobile, 2-col grid on desktop */}
-                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 max-w-4xl mx-auto md:pb-0 md:pt-0 md:mx-auto md:px-0 md:overflow-visible items-stretch">
+                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 max-w-3xl mx-auto md:pb-0 md:pt-0 md:mx-auto md:px-0 md:overflow-visible items-stretch">
                     {/* Basic Profile Creation */}
                     <div className="w-[80vw] max-w-[340px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
@@ -875,7 +875,7 @@ const Services: React.FC<ServicesProps> = ({
                     </div>
 
                     <button
-                      onClick={() => handleGetThisPlan("Profile Verification Plan")}
+                      onClick={() => handleGetThisPlan("Profile Verification")}
                       className="w-full mt-2 py-3.5 px-6 rounded-xl font-bold text-sm bg-googleBlue text-white hover:bg-navy transition-colors duration-300 shadow-md shadow-blue-100"
                     >
                       Get This Plan
