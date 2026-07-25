@@ -139,9 +139,16 @@ const Services: React.FC<ServicesProps> = ({
       onSelectPackage(pkgName);
     }
     setTimeout(() => {
-      const contactElem = document.getElementById('contact');
-      if (contactElem) {
-        contactElem.scrollIntoView({ behavior: 'smooth' });
+      const formElem = document.getElementById('contact-form') || document.getElementById('contact');
+      if (formElem) {
+        const yOffset = -70;
+        const y = formElem.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        
+        const selectElement = document.getElementById("interestedServiceSelect");
+        if (selectElement) {
+          selectElement.focus({ preventScroll: true });
+        }
       }
     }, 100);
   };
@@ -263,63 +270,61 @@ const Services: React.FC<ServicesProps> = ({
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.95, y: 20, opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-              className="relative bg-white w-full max-w-6xl rounded-3xl shadow-2xl p-5 sm:p-8 md:p-10 overflow-y-auto max-h-[90vh] z-10 border border-gray-100"
+              className="relative bg-white w-full max-w-6xl rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 overflow-y-auto max-h-[90vh] z-10 border border-gray-100"
             >
-              {/* Close Icon Button */}
-              <button
-                onClick={closeModal}
-                className="absolute top-5 right-5 md:top-7 md:right-7 p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors z-20"
-                aria-label="Close modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
               {/* MODAL CONTENT PER SERVICE TYPE */}
 
               {/* 1. GOOGLE BUSINESS PROFILE OPTIMIZATION MODAL */}
               {activeModalId === 'gmb-opt' && (
                 <div>
-                  {/* Header */}
-                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      Choose Your Optimization Plan
+                  {/* Header Row with Title and Close Button */}
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy">
+                      Choose Your Plan
                     </h3>
+                    <button
+                      onClick={closeModal}
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
+                  </div>
 
-                    {/* Monthly / Yearly Toggle */}
-                    <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6 bg-gray-50 p-1.5 rounded-2xl border border-gray-200/80 w-fit max-w-full mx-auto">
-                      <button
-                        type="button"
-                        onClick={() => setIsYearly(false)}
-                        className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all shrink-0 ${
-                          !isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
-                        }`}
-                      >
-                        Monthly
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setIsYearly(!isYearly)}
-                        className="w-11 sm:w-12 h-6 bg-gray-200 rounded-full cursor-pointer relative flex items-center px-1 border border-gray-300 transition-colors shrink-0"
-                      >
-                        <div className={`w-4 h-4 rounded-full bg-navy shadow-xs transition-transform duration-300 ${isYearly ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'}`} />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setIsYearly(true)}
-                        className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 sm:gap-2 shrink-0 ${
-                          isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
-                        }`}
-                      >
-                        <span className="whitespace-nowrap">Yearly</span>
-                        <span className="text-[9px] sm:text-[10px] bg-googleGreen text-white px-2 py-0.5 font-bold rounded-full uppercase whitespace-nowrap shrink-0">
-                          20% OFF
-                        </span>
-                      </button>
-                    </div>
+                  {/* Monthly / Yearly Toggle */}
+                  <div className="flex items-center justify-center gap-2 sm:gap-3 mb-5 bg-gray-50 p-1.5 rounded-2xl border border-gray-200/80 w-fit max-w-full mx-auto">
+                    <button
+                      type="button"
+                      onClick={() => setIsYearly(false)}
+                      className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all shrink-0 ${
+                        !isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
+                      }`}
+                    >
+                      Monthly
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsYearly(!isYearly)}
+                      className="w-11 sm:w-12 h-6 bg-gray-200 rounded-full cursor-pointer relative flex items-center px-1 border border-gray-300 transition-colors shrink-0"
+                    >
+                      <div className={`w-4 h-4 rounded-full bg-navy shadow-xs transition-transform duration-300 ${isYearly ? 'translate-x-5 sm:translate-x-6' : 'translate-x-0'}`} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsYearly(true)}
+                      className={`text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 sm:gap-2 shrink-0 ${
+                        isYearly ? 'bg-navy text-white shadow-sm' : 'text-gray-500 hover:text-navy'
+                      }`}
+                    >
+                      <span className="whitespace-nowrap">Yearly</span>
+                      <span className="text-[9px] sm:text-[10px] bg-googleGreen text-white px-2 py-0.5 font-bold rounded-full uppercase whitespace-nowrap shrink-0">
+                        20% OFF
+                      </span>
+                    </button>
                   </div>
 
                   {/* 3 Package Cards - Horizontal scroll on mobile, 3-col grid on desktop */}
-                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:pb-0 md:pt-0 md:mx-0 md:px-0 md:overflow-visible items-stretch">
+                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-6 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-6 md:pb-0 md:pt-6 md:mx-0 md:px-0 md:overflow-visible items-stretch">
                     {/* Starter Plan */}
                     <div className="w-[80vw] max-w-[320px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
@@ -330,14 +335,14 @@ const Services: React.FC<ServicesProps> = ({
                           <h4 className="text-xl font-bold text-navy">Starter Plan</h4>
                         </div>
                         
-                        <div className="flex items-baseline gap-1 my-3">
-                          <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹1,599' : '₹1,999'}
+                        <div className="flex items-baseline gap-1.5 my-3">
+                          <span className="text-2xl sm:text-3xl font-black text-navy">
+                            {isYearly ? '₹19,199' : '₹1,999'}
                           </span>
-                          <span className="text-gray-400 text-xs font-semibold">/month</span>
+                          {!isYearly && <span className="text-gray-400 text-xs font-semibold">/month</span>}
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹4,800/yr
+                              Save ₹4,789/yr
                             </span>
                           )}
                         </div>
@@ -411,14 +416,14 @@ const Services: React.FC<ServicesProps> = ({
                           <h4 className="text-xl font-bold text-navy">Growth Plan</h4>
                         </div>
                         
-                        <div className="flex items-baseline gap-1 my-3">
-                          <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹2,399' : '₹2,999'}
+                        <div className="flex items-baseline gap-1.5 my-3">
+                          <span className="text-2xl sm:text-3xl font-black text-navy">
+                            {isYearly ? '₹28,799' : '₹2,999'}
                           </span>
-                          <span className="text-gray-400 text-xs font-semibold">/month</span>
+                          {!isYearly && <span className="text-gray-400 text-xs font-semibold">/month</span>}
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹7,200/yr
+                              Save ₹7,189/yr
                             </span>
                           )}
                         </div>
@@ -488,14 +493,14 @@ const Services: React.FC<ServicesProps> = ({
                           <h4 className="text-xl font-bold text-navy">Pro Plan</h4>
                         </div>
                         
-                        <div className="flex items-baseline gap-1 my-3">
-                          <span className="text-3xl font-black text-navy">
-                            {isYearly ? '₹3,999' : '₹4,999'}
+                        <div className="flex items-baseline gap-1.5 my-3">
+                          <span className="text-2xl sm:text-3xl font-black text-navy">
+                            {isYearly ? '₹47,999' : '₹4,999'}
                           </span>
-                          <span className="text-gray-400 text-xs font-semibold">/month</span>
+                          {!isYearly && <span className="text-gray-400 text-xs font-semibold">/month</span>}
                           {isYearly && (
                             <span className="text-[10px] font-bold text-googleGreen bg-green-50 px-2 py-0.5 rounded-md ml-1">
-                              Save ₹12,000/yr
+                              Save ₹11,989/yr
                             </span>
                           )}
                         </div>
@@ -561,14 +566,21 @@ const Services: React.FC<ServicesProps> = ({
               {/* 2. NEW PROFILE CREATION MODAL */}
               {activeModalId === 'new-profile' && (
                 <div>
-                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">
-                      Choose Your New Profile Package
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy">
+                      Choose Your Plan
                     </h3>
+                    <button
+                      onClick={closeModal}
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
 
                   {/* 2 Package Cards - Horizontal scroll on mobile, 2-col grid on desktop */}
-                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-4 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 max-w-3xl mx-auto md:pb-0 md:pt-0 md:mx-auto md:px-0 md:overflow-visible items-stretch">
+                  <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-6 -mx-4 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:gap-6 max-w-3xl mx-auto md:pb-0 md:pt-6 md:mx-auto md:px-0 md:overflow-visible items-stretch">
                     {/* Basic Profile Creation */}
                     <div className="w-[80vw] max-w-[340px] shrink-0 snap-start md:w-auto md:shrink bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between relative">
                       <div>
@@ -719,13 +731,20 @@ const Services: React.FC<ServicesProps> = ({
               {/* 3. CALL BUTTON ACTIVATION MODAL */}
               {activeModalId === 'call-button' && (
                 <div className="max-w-xl mx-auto">
-                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
-                      <span className="p-2.5 bg-yellow-50 text-googleYellow rounded-xl inline-flex items-center justify-center shrink-0">
-                        <Phone className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy flex items-center gap-2.5 sm:gap-3">
+                      <span className="p-2 sm:p-2.5 bg-yellow-50 text-googleYellow rounded-xl inline-flex items-center justify-center shrink-0">
+                        <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
                       </span>
                       <span>Call Button Activation</span>
                     </h3>
+                    <button
+                      onClick={closeModal}
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
 
                   <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
@@ -775,13 +794,20 @@ const Services: React.FC<ServicesProps> = ({
               {/* 4. SUSPENDED ACCOUNT RECOVERY MODAL */}
               {activeModalId === 'recovery' && (
                 <div className="max-w-xl mx-auto">
-                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
-                      <span className="p-2.5 bg-red-50 text-googleRed rounded-xl inline-flex items-center justify-center shrink-0">
-                        <ShieldAlert className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy flex items-center gap-2.5 sm:gap-3">
+                      <span className="p-2 sm:p-2.5 bg-red-50 text-googleRed rounded-xl inline-flex items-center justify-center shrink-0">
+                        <ShieldAlert className="w-5 h-5 sm:w-6 sm:h-6" />
                       </span>
                       <span>Suspended Account Recovery</span>
                     </h3>
+                    <button
+                      onClick={closeModal}
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
 
                   <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
@@ -831,13 +857,20 @@ const Services: React.FC<ServicesProps> = ({
               {/* 5. PROFILE VERIFICATION MODAL */}
               {activeModalId === 'verification' && (
                 <div className="max-w-xl mx-auto">
-                  <div className="text-center max-w-2xl mx-auto mb-8 pr-8 sm:pr-0">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-navy flex items-center justify-center gap-3 md:gap-4">
-                      <span className="p-2.5 bg-teal-50 text-teal-600 rounded-xl inline-flex items-center justify-center shrink-0">
-                        <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <div className="flex items-center justify-between mb-4 sm:mb-6">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-navy flex items-center gap-2.5 sm:gap-3">
+                      <span className="p-2 sm:p-2.5 bg-teal-50 text-teal-600 rounded-xl inline-flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6" />
                       </span>
                       <span>Profile Verification</span>
                     </h3>
+                    <button
+                      onClick={closeModal}
+                      className="p-1.5 sm:p-2 text-gray-400 hover:text-navy hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                      aria-label="Close modal"
+                    >
+                      <X className="w-6 h-6" />
+                    </button>
                   </div>
 
                   <div className="bg-white rounded-3xl border border-gray-200 p-6 md:p-8 shadow-sm relative flex flex-col justify-between">
