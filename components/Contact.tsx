@@ -75,12 +75,12 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
         <div className="bg-gray-50 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden shadow-sm border border-gray-100">
           <div className="flex flex-col lg:flex-row">
             {/* Contact Details Left Column */}
-            <div className="lg:w-[40%] p-6 sm:p-8 lg:p-12 bg-navy text-white flex flex-col justify-center">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-6 leading-tight">
+            <div className="lg:w-[45%] p-6 sm:p-8 lg:p-14 xl:p-16 bg-navy text-white flex flex-col justify-center">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-6 lg:mb-8 leading-tight">
                 Let's Rank Your Business <span className="text-googleBlue">#1</span>
               </h3>
               
-              <div className="space-y-5 sm:space-y-6">
+              <div className="space-y-6 lg:space-y-8">
                 {/* Contact No. */}
                 <div className="flex items-center gap-4 sm:gap-5 group">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-2xl flex items-center justify-center text-googleBlue flex-shrink-0 group-hover:bg-googleBlue group-hover:text-white transition-all">
@@ -124,7 +124,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
             </div>
 
             {/* Form Right Column */}
-            <div id="contact-form" className="lg:w-[60%] p-6 sm:p-8 lg:p-12 bg-white flex flex-col justify-center scroll-mt-20">
+            <div id="contact-form" className="lg:w-[55%] p-6 sm:p-8 lg:p-14 xl:p-16 bg-white flex flex-col justify-center scroll-mt-20">
               <AnimatePresence mode="wait">
                 {!isSuccess ? (
                   <motion.div
@@ -134,10 +134,10 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                      <div className="space-y-4 sm:space-y-5">
+                    <form className="space-y-5 sm:space-y-6 lg:space-y-7" onSubmit={handleSubmit}>
+                      <div className="space-y-5 sm:space-y-6 lg:space-y-7">
                         {/* Business Name */}
-                        <div className="space-y-1.5">
+                        <div className="space-y-2 lg:space-y-2.5">
                           <label className="text-xs font-bold text-navy uppercase tracking-widest">Business Name *</label>
                           <input 
                             id="businessName"
@@ -152,7 +152,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
                         </div>
 
                         {/* Phone Number */}
-                        <div className="space-y-1.5">
+                        <div className="space-y-2 lg:space-y-2.5">
                           <label className="text-xs font-bold text-navy uppercase tracking-widest">Phone Number *</label>
                           <input 
                             name="phoneNumber"
@@ -166,7 +166,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
                         </div>
 
                         {/* Interested Service */}
-                        <div className="space-y-1.5">
+                        <div className="space-y-2 lg:space-y-2.5">
                           <label className="text-xs font-bold text-navy uppercase tracking-widest">Interested Service *</label>
                           <div className="relative">
                             <select 
@@ -205,7 +205,7 @@ const Contact: React.FC<ContactProps> = ({ selectedService, onSelectedServiceCha
                       <button 
                         type="submit" 
                         disabled={isSubmitting}
-                        className={`w-full bg-googleBlue text-white py-4 sm:py-4.5 rounded-2xl font-bold text-base sm:text-lg transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3 mt-2 ${isSubmitting ? 'opacity-80 cursor-not-allowed' : 'hover:bg-navy'}`}
+                        className={`w-full bg-googleBlue text-white py-4 sm:py-4.5 rounded-2xl font-bold text-base sm:text-lg transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3 mt-4 sm:mt-6 ${isSubmitting ? 'opacity-80 cursor-not-allowed' : 'hover:bg-navy'}`}
                       >
                         {isSubmitting ? (
                           <>
